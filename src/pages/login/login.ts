@@ -3,6 +3,8 @@ import { IonicPage, NavController } from 'ionic-angular';
 import { ApiRequestProvider } from '../../providers/api-request/api-request';
 import { HomePage } from '../../pages/home/home';
 import { Toast } from '@ionic-native/toast';
+import { User } from '../../model/User'
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -32,7 +34,7 @@ export class LoginPage {
 		this.apiRequest.signIn(this.registerCredentials).subscribe(
 			data => {
 				console.log(data);
-				this.navCtrl.setRoot(HomePage, {data: 'user'});
+				this.navCtrl.setRoot(HomePage, {user: data.user as User});
 			},
 			err => {
 				this.showToast(err);
@@ -47,9 +49,9 @@ export class LoginPage {
 	}
 
 	private showToast(text) {
-		this.toast.showShortBottom(text).subscribe(
+/*		this.toast.showShortBottom(text).subscribe(
 			toast => {
 				console.log(toast);
-			});
+			});*/
 	}
 }

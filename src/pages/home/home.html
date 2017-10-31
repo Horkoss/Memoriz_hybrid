@@ -14,5 +14,7 @@
 
 
 <ion-content padding>
-
+	<ul *ngIf="contentList">
+		<li *ngFor="let content of contentList.contents"> {{content.caption}} </li>
+	</ul>
 </ion-content>
