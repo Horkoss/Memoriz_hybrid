@@ -1,20 +1,15 @@
-<ion-content class="login-content" padding>
-  <div class="login-box">
+  <div class="login-box" padding>
     <form (ngSubmit)="signIn()">
       <ion-row>
-        <ion-col>
-          <ion-list inset>
-            
-            <ion-item>
-              <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email"></ion-input>
-            </ion-item>
-            
-            <ion-item>
-              <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password"></ion-input>
-            </ion-item>
-            
-          </ion-list>
-        </ion-col>
+          <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="text" name="email" [(ngModel)]="registerCredentials.email"></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" name="password" [(ngModel)]="registerCredentials.password"></ion-input>
+          </ion-item>
       </ion-row>
       
       <ion-row>
@@ -24,4 +19,3 @@
       
     </form>
   </div>
-</ion-content>

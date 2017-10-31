@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiRequestProvider } from '../../providers/api-request/api-request';
 import { HomePage } from '../../pages/home/home';
-import { Observable } from 'rxjs/Observable';
 import { User } from '../../model/User'
 
 /**

@@ -1,26 +1,32 @@
 page-login {
 
-	.login-content > * {
-	     display: flex!important;
-	     align-content: center!important;
-	     align-items: center!important;
+	.login-box {
+	  display: flex;
+	  justify-content: center; /* center horizontally */
+	  align-items: center; /* center vertically */
+	  height: 100%;
+	  background: white;
 	}
-	
+
+	form {
+		width: 90%;
+	}
+
 	ion-spinner {
 		margin:auto;
 		stroke: #5060ff;
-		fill: #5060ff;
+		fill: #5060ff;		
 		height: 38px;
 		width: 38px;
 	}
 
 	ion-row {
-		align-items: center;
-		text-align: center;
+		margin-bottom: 15px;
 	}
 
 	ion-item {
 		margin-bottom: 10px;
+		padding-left: 0px !important;
 	}
 
 	.submit-btn {
