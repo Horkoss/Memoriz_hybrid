@@ -1,0 +1,30 @@
+page-login {
+
+	.login-content > * {
+	     display: flex!important;
+	     align-content: center!important;
+	     align-items: center!important;
+	}
+	
+	ion-spinner {
+		margin:auto;
+		stroke: #5060ff;
+		fill: #5060ff;
+		height: 38px;
+		width: 38px;
+	}
+
+	ion-row {
+		align-items: center;
+		text-align: center;
+	}
+
+	ion-item {
+		margin-bottom: 10px;
+	}
+
+	.submit-btn {
+		background: #5060ff;
+		border-radius: 30px !important;
+	}
+}
