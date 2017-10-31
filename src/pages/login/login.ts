@@ -19,7 +19,7 @@ import { User } from '../../model/User'
 })
 export class LoginPage {
 	isLoading: boolean;
-	registerCredentials = { email: '', password: '' };
+	registerCredentials = { email: 'jltang@gmail.com', password: 'password' };
 
 	constructor(public navCtrl: NavController, private apiRequest: ApiRequestProvider, private toast: Toast) {
 		this.isLoading = false;
@@ -49,9 +49,9 @@ export class LoginPage {
 	}
 
 	private showToast(text) {
-/*		this.toast.showShortBottom(text).subscribe(
+		this.toast.showShortBottom(text).subscribe(
 			toast => {
 				console.log(toast);
-			});*/
+			});
 	}
 }

@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiRequestProvider } from '../../providers/api-request/api-request';
 import { User } from '../../model/User'
 import { Toast } from '@ionic-native/toast';
-import { ContentArray, Content } from '../../model/ContentArray'
+import { ContentArray } from '../../model/ContentArray'
 
 /**
  * Generated class for the HomePage page.
@@ -17,17 +17,22 @@ import { ContentArray, Content } from '../../model/ContentArray'
  	selector: 'page-home',
  	templateUrl: 'home.html',
  })
- export class HomePage {
+ export class HomePage implements OnInit {
  	user: User;
- 	contentList: ContentArray;
+ 	contentArray: ContentArray;
+ 	contentList: Array<any> = [];
 
  	constructor(public navCtrl: NavController, public navParams: NavParams, private apiRequest: ApiRequestProvider, private toast: Toast) {
- 		this.user = navParams.get('user');
+ 	}
+
+ 	ngOnInit() {
+ 		this.user = this.navParams.get('user');
  		console.log(this.user);
- 		this.apiRequest.getAllContent(this.user.authentication_token, 1, 5).subscribe(			
+ 		this.apiRequest.getAllContent(this.user.authentication_token, 1, 10).subscribe(			
  			data => {
 				console.log(data);
-				this.contentList = data as ContentArray;
+				this.contentArray = data as ContentArray;
+				this.contentList = this.contentArray.contents;
 			},
 			err => {
 				this.showToast(err);
@@ -43,9 +48,9 @@ import { ContentArray, Content } from '../../model/ContentArray'
  	}
 
 	private showToast(text) {
-/*		this.toast.showShortBottom(text).subscribe(
+		this.toast.showShortBottom(text).subscribe(
 			toast => {
 				console.log(toast);
-			});*/
+			});
 	}
  }
