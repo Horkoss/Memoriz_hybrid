@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { User } from '../../model/User'
 
 /**
  * Generated class for the HomePage page.
@@ -8,18 +9,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
-@Component({
-  selector: 'page-home',
-  templateUrl: 'home.html',
-})
-export class HomePage {
+ @IonicPage()
+ @Component({
+ 	selector: 'page-home',
+ 	templateUrl: 'home.html',
+ })
+ export class HomePage {
+ 	user: User;
+ 	constructor(public navCtrl: NavController, public navParams: NavParams) {
+ 		this.user = navParams.get('user');
+ 	}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+ 	ionViewDidLoad() {
+ 		console.log('ionViewDidLoad HomePage');
+ 	}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
-  }
-
-}
+ }

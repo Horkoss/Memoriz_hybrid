@@ -31,6 +31,10 @@ import { User } from '../../model/User'
   		}
   	}
 
+    getAllContent(){
+      
+    }
+
   	private getHeaders() {
   		var headers = new Headers();
   		headers.append("Accept", 'application/json');

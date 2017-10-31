@@ -9,6 +9,7 @@ import { HttpModule } from '@angular/http';
 import { ApiRequestProvider } from '../providers/api-request/api-request';
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
+import { Toast } from '@ionic-native/toast';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { HomePage } from '../pages/home/home';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ApiRequestProvider
+    ApiRequestProvider,
+    Toast
   ]
 })
 export class AppModule {}

@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { ApiRequestProvider } from '../../providers/api-request/api-request';
 import { HomePage } from '../../pages/home/home';
-import { User } from '../../model/User'
-
+import { Toast } from '@ionic-native/toast';
 /**
  * Generated class for the LoginPage page.
  *
@@ -18,10 +17,9 @@ import { User } from '../../model/User'
 })
 export class LoginPage {
 	isLoading: boolean;
-	user: User;
 	registerCredentials = { email: '', password: '' };
 
-	constructor(public navCtrl: NavController, private apiRequest: ApiRequestProvider, public navParams: NavParams) {
+	constructor(public navCtrl: NavController, private apiRequest: ApiRequestProvider, private toast: Toast) {
 		this.isLoading = false;
 	}
 
@@ -33,11 +31,11 @@ export class LoginPage {
 		this.isLoading = true;
 		this.apiRequest.signIn(this.registerCredentials).subscribe(
 			data => {
-				this.user = data; 
-				console.log(this.user);
-				this.navCtrl.setRoot(HomePage);
+				console.log(data);
+				this.navCtrl.setRoot(HomePage, {data: 'user'});
 			},
 			err => {
+				this.showToast(err);
 				console.log(err);
 				this.isLoading = false;
 			},
@@ -46,5 +44,12 @@ export class LoginPage {
 				this.isLoading = false;
 			}
 		);
+	}
+
+	private showToast(text) {
+		this.toast.showShortBottom(text).subscribe(
+			toast => {
+				console.log(toast);
+			});
 	}
 }
