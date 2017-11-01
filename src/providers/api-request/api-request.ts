@@ -38,6 +38,14 @@ import { Observable } from 'rxjs/Observable'
       .do(this.logResponse).map(this.extractData).catch(this.catchError);
     }
 
+    getUserContent(token, page, per) {
+      let headers = this.getHeaders(token);
+      let options = new RequestOptions({ headers: headers });
+
+      return this.http.get(this.apiUrl + '/contents?page=' + page + '&per=' + per, options)
+      .do(this.logResponse).map(this.extractData).catch(this.catchError);
+    }
+
   	private getHeaders(token) {
   		var headers = new Headers();
   		headers.append("Accept", 'application/json');

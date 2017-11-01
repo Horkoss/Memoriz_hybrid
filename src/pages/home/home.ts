@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ApiRequestProvider } from '../../providers/api-request/api-request';
 import { User } from '../../model/User'
-import { Toast } from '@ionic-native/toast';
-import { ContentArray } from '../../model/ContentArray'
+import { ContentPage } from '../../pages/content/content'
+import { UserContentPage } from '../../pages/user-content/user-content'
 
 /**
  * Generated class for the HomePage page.
@@ -17,40 +16,21 @@ import { ContentArray } from '../../model/ContentArray'
  	selector: 'page-home',
  	templateUrl: 'home.html',
  })
- export class HomePage implements OnInit {
+ export class HomePage implements OnInit{
  	user: User;
- 	contentArray: ContentArray;
- 	contentList: Array<any> = [];
+ 	content = 'ContentPage';
+ 	userContent = 'UserContentPage';
 
- 	constructor(public navCtrl: NavController, public navParams: NavParams, private apiRequest: ApiRequestProvider, private toast: Toast) {
+ 	constructor(public navCtrl: NavController, public navParams: NavParams) {
  	}
 
  	ngOnInit() {
  		this.user = this.navParams.data;
  		console.log(this.user);
- 		this.apiRequest.getAllContent(this.user.authentication_token, 1, 10).subscribe(			
- 			data => {
-				console.log(data);
-				this.contentArray = data as ContentArray;
-				this.contentList = this.contentArray.contents;
-			},
-			err => {
-				this.showToast(err);
-				console.log(err);
-			},
-			() => {
-				console.log('Content loaded');
-			});
- 	}
+	}
 
  	ionViewDidLoad() {
  		console.log('ionViewDidLoad HomePage');
+ 		console.log(this.user);
  	}
-
-	private showToast(text) {
-		this.toast.showShortBottom(text).subscribe(
-			toast => {
-				console.log(toast);
-			});
-	}
  }

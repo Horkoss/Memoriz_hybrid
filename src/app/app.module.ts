@@ -10,6 +10,10 @@ import { ApiRequestProvider } from '../providers/api-request/api-request';
 import { LoginPage } from '../pages/login/login';
 import { MenuPage } from '../pages/menu/menu';
 import { Toast } from '@ionic-native/toast';
+import { SuperTabsModule } from 'ionic2-super-tabs';
+import { HomePage } from '../pages/home/home'
+import { ContentPage } from '../pages/content/content'
+import { UserContentPage } from '../pages/user-content/user-content'
 
 @NgModule({
   declarations: [
@@ -20,6 +24,7 @@ import { Toast } from '@ionic-native/toast';
   imports: [
     BrowserModule,
     HttpModule,
+    SuperTabsModule.forRoot(),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -33,7 +38,7 @@ import { Toast } from '@ionic-native/toast';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiRequestProvider,
-    Toast
+    Toast,
   ]
 })
 export class AppModule {}
