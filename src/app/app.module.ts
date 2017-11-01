@@ -8,14 +8,14 @@ import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
 import { ApiRequestProvider } from '../providers/api-request/api-request';
 import { LoginPage } from '../pages/login/login';
-import { HomePage } from '../pages/home/home';
+import { MenuPage } from '../pages/menu/menu';
 import { Toast } from '@ionic-native/toast';
 
 @NgModule({
   declarations: [
     MyApp,
     LoginPage,
-    HomePage
+    MenuPage
   ],
   imports: [
     BrowserModule,
@@ -26,7 +26,7 @@ import { Toast } from '@ionic-native/toast';
   entryComponents: [
     MyApp,
     LoginPage,
-    HomePage
+    MenuPage,
   ],
   providers: [
     StatusBar,

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { ApiRequestProvider } from '../../providers/api-request/api-request';
-import { HomePage } from '../../pages/home/home';
+import { MenuPage } from '../../pages/menu/menu';
 import { Toast } from '@ionic-native/toast';
 import { User } from '../../model/User'
 
@@ -34,7 +34,7 @@ export class LoginPage {
 		this.apiRequest.signIn(this.registerCredentials).subscribe(
 			data => {
 				console.log(data);
-				this.navCtrl.setRoot(HomePage, {user: data.user as User});
+				this.navCtrl.setRoot(MenuPage, {user: data.user as User});
 			},
 			err => {
 				this.showToast(err);

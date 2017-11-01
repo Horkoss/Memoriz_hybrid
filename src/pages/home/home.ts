@@ -26,7 +26,7 @@ import { ContentArray } from '../../model/ContentArray'
  	}
 
  	ngOnInit() {
- 		this.user = this.navParams.get('user');
+ 		this.user = this.navParams.data;
  		console.log(this.user);
  		this.apiRequest.getAllContent(this.user.authentication_token, 1, 10).subscribe(			
  			data => {
