@@ -13,10 +13,10 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
 	<div *ngIf="contentList">
 		<ion-list [virtualScroll]="contentList" [approxItemHeight]="'170px'">
-			<ion-item *virtualItem="let content">
+			<ion-item no-lines *virtualItem="let content">
 				<img src="{{content.urls.original}}">
 				<p>{{content.caption}}</p>
 			</ion-item>
