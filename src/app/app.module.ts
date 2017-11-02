@@ -11,15 +11,17 @@ import { LoginPage } from '../pages/login/login';
 import { MenuPage } from '../pages/menu/menu';
 import { Toast } from '@ionic-native/toast';
 import { SuperTabsModule } from 'ionic2-super-tabs';
-import { HomePage } from '../pages/home/home'
-import { ContentPage } from '../pages/content/content'
-import { UserContentPage } from '../pages/user-content/user-content'
+import { AddNewContentPage } from '../pages/add-new-content/add-new-content'
+import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { ImagePicker } from '@ionic-native/image-picker';
 
 @NgModule({
   declarations: [
     MyApp,
     LoginPage,
-    MenuPage
+    MenuPage,
+    AddNewContentPage
   ],
   imports: [
     BrowserModule,
@@ -32,6 +34,7 @@ import { UserContentPage } from '../pages/user-content/user-content'
     MyApp,
     LoginPage,
     MenuPage,
+    AddNewContentPage,
   ],
   providers: [
     StatusBar,
@@ -39,6 +42,10 @@ import { UserContentPage } from '../pages/user-content/user-content'
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiRequestProvider,
     Toast,
+    ImagePicker,
+    FileTransfer,
+    FileTransferObject,
+    File,
   ]
 })
 export class AppModule {}

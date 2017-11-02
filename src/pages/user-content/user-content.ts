@@ -4,6 +4,8 @@ import { ApiRequestProvider } from '../../providers/api-request/api-request';
 import { User } from '../../model/User'
 import { Toast } from '@ionic-native/toast';
 import { ContentArray } from '../../model/ContentArray'
+import { AddNewContentPage } from '../../pages/add-new-content/add-new-content'
+import { App } from 'ionic-angular';
 
 /**
  * Generated class for the UserContentPage page.
@@ -22,7 +24,7 @@ export class UserContentPage implements OnInit {
 	contentArray: ContentArray;
 	contentList: Array<any> = [];
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, private apiRequest: ApiRequestProvider, private toast: Toast) {
+	constructor(private app:App, public navCtrl: NavController, public navParams: NavParams, private apiRequest: ApiRequestProvider, private toast: Toast) {
 	}
 
 	ngOnInit() {
@@ -44,6 +46,7 @@ export class UserContentPage implements OnInit {
 	}
 
 	addNewContent() {
+		this.app.getRootNav().push(AddNewContentPage, { token: this.user.authentication_token });
 	}
 
 	ionViewDidLoad() {

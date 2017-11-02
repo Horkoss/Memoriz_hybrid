@@ -5,6 +5,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/observable/throw';
 import { Observable } from 'rxjs/Observable'
+import { FileUploadOptions } from '@ionic-native/file-transfer';
 
   @Injectable()
   export class ApiRequestProvider {
@@ -44,6 +45,9 @@ import { Observable } from 'rxjs/Observable'
 
       return this.http.get(this.apiUrl + '/contents?page=' + page + '&per=' + per, options)
       .do(this.logResponse).map(this.extractData).catch(this.catchError);
+    }
+
+    addNewContent(token, imagePath, fileTransfer) {
     }
 
   	private getHeaders(token) {
