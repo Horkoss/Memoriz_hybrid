@@ -14,49 +14,63 @@ import { App } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
-@Component({
-	selector: 'page-user-content',
-	templateUrl: 'user-content.html',
-})
-export class UserContentPage implements OnInit {
-	user: User;
-	contentArray: ContentArray;
-	contentList: Array<any> = [];
+ @IonicPage()
+ @Component({
+ 	selector: 'page-user-content',
+ 	templateUrl: 'user-content.html',
+ })
+ export class UserContentPage implements OnInit {
+ 	user: User;
+ 	contentArray: ContentArray;
+ 	contentList: Array<any> = [];
+ 	page: number = 1;
+ 	per: number = 5;
 
-	constructor(private app:App, public navCtrl: NavController, public navParams: NavParams, private apiRequest: ApiRequestProvider, private toast: Toast) {
-	}
+ 	constructor(private app:App, public navCtrl: NavController, public navParams: NavParams, private apiRequest: ApiRequestProvider, private toast: Toast) {
+ 	}
 
-	ngOnInit() {
-		this.user = this.navParams.data;
-		console.log(this.user);
-		this.apiRequest.getUserContent(this.user.authentication_token, 1, 5).subscribe(			
-			data => {
-				console.log(data);
-				this.contentArray = data as ContentArray;
-				this.contentList = this.contentArray.contents;
-			},
-			err => {
-				this.showToast(err);
-				console.log(err);
-			},
-			() => {
-				console.log('Content loaded');
-			});
-	}
+ 	ngOnInit() {
+ 		this.user = this.navParams.data;
+ 		console.log(this.user);
+ 		this.getContent(null);
+ 	}
 
-	addNewContent() {
-		this.app.getRootNav().push(AddNewContentPage, { token: this.user.authentication_token });
-	}
+ 	getContent(refresher) {
+ 		this.apiRequest.getUserContent(this.user.authentication_token, this.page, this.per).subscribe(			
+ 			data => {
+ 				if (refresher != null)
+ 					refresher.complete();
+ 				console.log(data);
+ 				this.contentArray = data as ContentArray;
+ 				this.contentList = this.contentArray.contents;
+ 			},
+ 			err => {
+ 				if (refresher != null)
+ 					refresher.complete();
+ 				this.showToast(err);
+ 				console.log(err);
+ 			},
+ 			() => {
+ 				console.log('Content loaded');
+ 			});
+ 	}
 
-	ionViewDidLoad() {
-		console.log('ionViewDidLoad UserContentPage');
-	}
+ 	refreshContent(refresher) {
+ 		this.getContent(refresher);
+ 	}
 
-	private showToast(text) {
-		this.toast.showShortBottom(text).subscribe(
-			toast => {
-				console.log(toast);
-			});
-	}
-}
+ 	addNewContent() {
+ 		this.app.getRootNav().push(AddNewContentPage, { token: this.user.authentication_token });
+ 	}
+
+ 	ionViewDidLoad() {
+ 		console.log('ionViewDidLoad UserContentPage');
+ 	}
+
+ 	private showToast(text) {
+ 		this.toast.showShortBottom(text).subscribe(
+ 			toast => {
+ 				console.log(toast);
+ 			});
+ 	}
+ }

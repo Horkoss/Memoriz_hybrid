@@ -6,6 +6,10 @@
 -->
 
 <ion-content padding>
+	<ion-refresher (ionRefresh)="refreshContent($event)">
+		<ion-refresher-content refreshingSpinner="circles">
+		</ion-refresher-content>
+	</ion-refresher>
 	<div *ngIf="contentList">
 		<ion-list [virtualScroll]="contentList" [approxItemHeight]="'170px'">
 			<ion-item no-lines *virtualItem="let content">
@@ -14,7 +18,7 @@
 			</ion-item>
 		</ion-list>
 	</div>
-	 <ion-fab right bottom>
-   		<button ion-fab (click)="addNewContent()"><ion-icon name="add"></ion-icon></button>
- 	</ion-fab>
+	<ion-fab right bottom>
+		<button ion-fab (click)="addNewContent()"><ion-icon name="add"></ion-icon></button>
+	</ion-fab>
 </ion-content>
