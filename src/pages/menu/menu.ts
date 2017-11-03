@@ -15,13 +15,11 @@ import { User } from '../../model/User'
  	templateUrl: 'menu.html'
  })
  export class MenuPage {
- 	user: User;
  	homeRoot = 'HomePage'
  	eventsRoot = 'EventsPage'
  	profileRoot = 'ProfilePage'
 
  	constructor(public navCtrl: NavController, public navParams: NavParams) {
- 		this.user = this.navParams.get('user');
  	}
 
  }

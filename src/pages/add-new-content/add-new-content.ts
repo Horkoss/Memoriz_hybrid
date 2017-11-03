@@ -17,11 +17,9 @@ import { ApiRequestProvider } from '../../providers/api-request/api-request';
 	templateUrl: 'add-new-content.html',
 })
 export class AddNewContentPage {
-	token: string;
 	imagePath: any;
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private imagePicker: ImagePicker, private apiRequest: ApiRequestProvider, private transfer: FileTransfer) {
-		this.token = navParams.get('token');
 	}
 
 	ionViewDidLoad() {
@@ -47,7 +45,7 @@ export class AddNewContentPage {
 			fileKey: 'attachment',
 			fileName: imageName,
 			chunkedMode: false,
-			headers: { token: this.token },
+			headers: { token: this.apiRequest.user.authentication_token },
 			params: { caption: 'hybrid'}
 		}
 

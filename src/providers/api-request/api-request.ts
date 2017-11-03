@@ -6,20 +6,21 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/observable/throw';
 import { Observable } from 'rxjs/Observable'
 import { FileUploadOptions } from '@ionic-native/file-transfer';
+import { User } from '../../model/User'
 
   @Injectable()
   export class ApiRequestProvider {
+    user: User;
   	apiUrl = "https://memoriz-api.herokuapp.com";
 
   	constructor(public http: Http) {
-  		console.log('Hello ApiRequestProvider Provider');
   	}
 
   	signIn(credentials) {
   		if (credentials.email == '' || credentials.password == '') {
   			return Observable.throw('Please complete all fields');
   		} else {
-        let headers = this.getHeaders(null);
+        let headers = this.getHeaders();
         let options = new RequestOptions({ headers: headers });
 
         let postParams = {
@@ -31,16 +32,16 @@ import { FileUploadOptions } from '@ionic-native/file-transfer';
   		}
   	}
 
-    getAllContent(token, page, per){
-      let headers = this.getHeaders(token);
+    getAllContent(page, per){
+      let headers = this.getHeaders();
       let options = new RequestOptions({ headers: headers });
 
       return this.http.get(this.apiUrl + '/all_contents?page=' + page + '&per=' + per, options)
       .do(this.logResponse).map(this.extractData).catch(this.catchError);
     }
 
-    getUserContent(token, page, per) {
-      let headers = this.getHeaders(token);
+    getUserContent(page, per) {
+      let headers = this.getHeaders();
       let options = new RequestOptions({ headers: headers });
 
       return this.http.get(this.apiUrl + '/contents?page=' + page + '&per=' + per, options)
@@ -50,12 +51,12 @@ import { FileUploadOptions } from '@ionic-native/file-transfer';
     addNewContent(token, imagePath, fileTransfer) {
     }
 
-  	private getHeaders(token) {
+  	private getHeaders() {
   		var headers = new Headers();
   		headers.append("Accept", 'application/json');
   		headers.append('Content-Type', 'application/json' );
-      if (token != null)
-         headers.append('token', token);
+      if (this.user != null)
+         headers.append('token', this.user.authentication_token.toString());
   		return headers;
   	}
 

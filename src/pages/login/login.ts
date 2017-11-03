@@ -34,7 +34,8 @@ export class LoginPage {
 		this.apiRequest.signIn(this.registerCredentials).subscribe(
 			data => {
 				console.log(data);
-				this.navCtrl.setRoot(MenuPage, {user: data.user as User});
+				this.apiRequest.user = data.user as User;
+				this.navCtrl.setRoot(MenuPage);
 			},
 			err => {
 				this.showToast(err);

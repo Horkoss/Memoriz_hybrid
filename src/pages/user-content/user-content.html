@@ -5,9 +5,9 @@
   Ionic pages and navigation.
 -->
 
-<ion-content padding>
+<ion-content>
 	<ion-refresher (ionRefresh)="refreshContent($event)">
-		<ion-refresher-content refreshingSpinner="circles">
+		<ion-refresher-content>
 		</ion-refresher-content>
 	</ion-refresher>
 	<div *ngIf="contentList">
@@ -21,4 +21,7 @@
 	<ion-fab right bottom>
 		<button ion-fab (click)="addNewContent()"><ion-icon name="add"></ion-icon></button>
 	</ion-fab>
+	<ion-infinite-scroll *ngIf="contentList.length < totalContent" (ionInfinite)="$event.waitFor(loadMore())">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
 </ion-content>

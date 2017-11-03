@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { User } from '../../model/User'
 import { ContentPage } from '../../pages/content/content'
 import { UserContentPage } from '../../pages/user-content/user-content'
 
@@ -16,21 +15,14 @@ import { UserContentPage } from '../../pages/user-content/user-content'
  	selector: 'page-home',
  	templateUrl: 'home.html',
  })
- export class HomePage implements OnInit{
- 	user: User;
+ export class HomePage {
  	content = 'ContentPage';
  	userContent = 'UserContentPage';
 
  	constructor(public navCtrl: NavController, public navParams: NavParams) {
  	}
 
- 	ngOnInit() {
- 		this.user = this.navParams.data;
- 		console.log(this.user);
-	}
-
  	ionViewDidLoad() {
  		console.log('ionViewDidLoad HomePage');
- 		console.log(this.user);
  	}
  }

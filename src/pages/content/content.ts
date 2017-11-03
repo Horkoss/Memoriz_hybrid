@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiRequestProvider } from '../../providers/api-request/api-request';
-import { User } from '../../model/User'
 import { Toast } from '@ionic-native/toast';
 import { ContentArray } from '../../model/ContentArray'
 /**
@@ -17,35 +16,31 @@ import { ContentArray } from '../../model/ContentArray'
  	templateUrl: 'content.html',
  })
  export class ContentPage implements OnInit {
- 	user: User;
- 	contentArray: ContentArray;
  	contentList: Array<any> = [];
  	page: number = 1;
  	per: number = 5;
+ 	totalContent: Number = 0;
 
  	constructor(public navCtrl: NavController, public navParams: NavParams, private apiRequest: ApiRequestProvider, private toast: Toast) {
  	}
 
  	ngOnInit() {
- 		this.user = this.navParams.data;
- 		console.log(this.user);
  		this.getContent(null);
  	}
 
  	getContent(refresher) {
- 		this.apiRequest.getAllContent(this.user.authentication_token, this.page, this.per).subscribe(			
+ 		this.apiRequest.getAllContent(1, this.per).subscribe(			
  			data => {
  				if (refresher != null)
  					refresher.complete();
- 				console.log(data);
- 				this.contentArray = data as ContentArray;
- 				this.contentList = this.contentArray.contents;
+ 				let contentArray = data as ContentArray;
+ 				this.totalContent = contentArray.count;
+ 				this.contentList = contentArray.contents;
  			},
  			err => {
  				if (refresher != null)
  					refresher.complete();
  				this.showToast(err);
- 				console.log(err);
  			},
  			() => {
  				console.log('Content loaded');
@@ -54,6 +49,27 @@ import { ContentArray } from '../../model/ContentArray'
 
  	ionViewDidLoad() {
  		console.log('ionViewDidLoad HomePage');
+ 	}
+
+ 	loadMore() {
+ 		return new Promise((resolve) => {
+ 			this.apiRequest.getAllContent(this.page + 1, 5).subscribe(			
+ 				data => {
+ 					let contentArray = data as ContentArray;
+ 					this.totalContent = contentArray.count;
+ 					this.contentList = this.contentList.concat(contentArray.contents);
+ 					this.per = this.contentList.length;
+ 					this.page = this.page + 1;
+ 					resolve();
+ 				},
+ 				err => {
+ 					resolve();
+ 					this.showToast(err);
+ 				},
+ 				() => {
+ 					console.log('Content loaded');
+ 				});
+ 		});
  	}
 
  	refreshContent(refresher) {
