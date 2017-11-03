@@ -61,8 +61,8 @@ import { User } from '../../model/User'
   	}
 
   	private catchError(error: Response | any){
-  		console.log(error);
-  		return Observable.throw(error.json.error || 'Servor error');
+  		console.log(error.json());
+  		return Observable.throw(error.json().error || 'Please check your network');
   	}
 
   	private logResponse(res) {

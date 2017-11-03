@@ -15,6 +15,7 @@ import { AddNewContentPage } from '../pages/add-new-content/add-new-content'
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { ImagePicker } from '@ionic-native/image-picker';
+import { Network } from '@ionic-native/network';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
     FileTransfer,
     FileTransferObject,
     File,
+    Network,
   ]
 })
 export class AppModule {}
