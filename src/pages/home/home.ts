@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ContentPage } from '../../pages/content/content'
 import { UserContentPage } from '../../pages/user-content/user-content'

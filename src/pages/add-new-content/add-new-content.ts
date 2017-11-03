@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { FileTransfer, FileTransferObject, FileUploadOptions } from '@ionic-native/file-transfer';
-import { File } from '@ionic-native/file';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { ApiRequestProvider } from '../../providers/api-request/api-request';
 import { Toast } from '@ionic-native/toast';

@@ -5,7 +5,6 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/observable/throw';
 import { Observable } from 'rxjs/Observable'
-import { FileUploadOptions } from '@ionic-native/file-transfer';
 import { User } from '../../model/User'
 
   @Injectable()
