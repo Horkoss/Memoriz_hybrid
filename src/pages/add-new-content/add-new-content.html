@@ -9,5 +9,8 @@
 		<img *ngIf="imagePath" [src]="imagePath">
 	</div>
 	<button (click)="selectImage()" ion-button class="select-image">Select image</button>
-	<button (click)="sendImage()" class="send">SEND</button>
 </ion-content>
+
+<ion-footer>
+      <button full ion-button (click)="sendImage()" class="send">SEND</button>
+</ion-footer>

@@ -25,11 +25,8 @@ page-add-new-content {
 
 	.send {
 		width: 100%;
-		padding: 15px;
-		position: absolute;
-		bottom: 0px;
-		left: 50%;
-    	transform: translate(-50%, 0);
+		margin: 0 !important;
+		padding: 20px;
     	background: #5060ff;
     	color: white;
 	}

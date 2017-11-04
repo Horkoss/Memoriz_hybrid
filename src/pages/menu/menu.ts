@@ -15,7 +15,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  })
  export class MenuPage {
  	homeRoot = 'HomePage'
- 	eventsRoot = 'EventsPage'
  	profileRoot = 'ProfilePage'
 
  	constructor(public navCtrl: NavController, public navParams: NavParams) {

@@ -13,7 +13,6 @@ import { Toast } from '@ionic-native/toast';
 import { SuperTabsModule } from 'ionic2-super-tabs';
 import { AddNewContentPage } from '../pages/add-new-content/add-new-content'
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
-import { File } from '@ionic-native/file';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Network } from '@ionic-native/network';
 
@@ -46,7 +45,6 @@ import { Network } from '@ionic-native/network';
     ImagePicker,
     FileTransfer,
     FileTransferObject,
-    File,
     Network,
   ]
 })

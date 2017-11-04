@@ -51,7 +51,7 @@ export class AddNewContentPage {
 				fileName: imageName,
 				chunkedMode: false,
 				headers: { token: this.apiRequest.user.authentication_token },
-				params: { caption: 'hybrid'}
+				params: { caption: '' }
 			}
 
 			loading.present();

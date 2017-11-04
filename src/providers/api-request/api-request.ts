@@ -47,9 +47,6 @@ import { User } from '../../model/User'
       .do(this.logResponse).map(this.extractData).catch(this.catchError);
     }
 
-    addNewContent(token, imagePath, fileTransfer) {
-    }
-
   	private getHeaders() {
   		var headers = new Headers();
   		headers.append("Accept", 'application/json');
