@@ -1,0 +1,46 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<div class="login-box" padding>
+	<form (ngSubmit)="register()">
+		<ion-row>
+			<ion-item class="firstname-item">
+				<ion-label floating>Firstname</ion-label>
+				<ion-input type="text" name="firstname" [(ngModel)]="registerCredentials.firstname"></ion-input>
+			</ion-item>
+
+			<ion-item class="lastname-item">
+				<ion-label floating>Lastname</ion-label>
+				<ion-input type="text" name="lastname" [(ngModel)]="registerCredentials.lastname"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label floating>Email</ion-label>
+				<ion-input type="text" name="email" [(ngModel)]="registerCredentials.email"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label floating>Password</ion-label>
+				<ion-input type="password" name="password" [(ngModel)]="registerCredentials.password"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label floating>Password Confirmation</ion-label>
+				<ion-input type="password" name="passwordConfirmation" [(ngModel)]="registerCredentials.password_confirmation"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label floating>Birthday</ion-label>
+				<ion-datetime displayFormat="MM/DD/YYYY" name="birthday" [(ngModel)]="registerCredentials.birthday"></ion-datetime>
+			</ion-item>		
+		</ion-row>
+
+		<ion-row>
+			<ion-spinner *ngIf="isLoading"></ion-spinner>
+			<button *ngIf="!isLoading" ion-button class="submit-btn" full type="submit">Register</button>
+		</ion-row>
+	</form>
+</div>

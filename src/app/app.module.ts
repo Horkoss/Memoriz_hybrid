@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
 import { ApiRequestProvider } from '../providers/api-request/api-request';
 import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register'
 import { MenuPage } from '../pages/menu/menu';
 import { Toast } from '@ionic-native/toast';
 import { SuperTabsModule } from 'ionic2-super-tabs';
@@ -21,7 +22,8 @@ import { Network } from '@ionic-native/network';
     MyApp,
     LoginPage,
     MenuPage,
-    AddNewContentPage
+    AddNewContentPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import { Network } from '@ionic-native/network';
     MyApp,
     LoginPage,
     MenuPage,
+    RegisterPage,
     AddNewContentPage,
   ],
   providers: [

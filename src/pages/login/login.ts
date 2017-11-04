@@ -4,6 +4,7 @@ import { ApiRequestProvider } from '../../providers/api-request/api-request';
 import { MenuPage } from '../../pages/menu/menu';
 import { Toast } from '@ionic-native/toast';
 import { User } from '../../model/User'
+import { RegisterPage } from '../../pages/register/register'
 
 /**
  * Generated class for the LoginPage page.
@@ -47,6 +48,10 @@ export class LoginPage {
 				this.isLoading = false;
 			}
 		);
+	}
+
+	register() {
+		this.navCtrl.push(RegisterPage);
 	}
 
 	private showToast(text) {

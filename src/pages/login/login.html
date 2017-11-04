@@ -1,5 +1,5 @@
   <div class="login-box" padding>
-    <form (ngSubmit)="signIn()">
+    <form>
       <ion-row>
           <ion-item>
             <ion-label floating>Email</ion-label>
@@ -14,8 +14,8 @@
       
       <ion-row>
       		<ion-spinner *ngIf="isLoading"></ion-spinner>
-        	<button *ngIf="!isLoading" ion-button class="submit-btn" full type="submit">Login</button>
+        	<button *ngIf="!isLoading" ion-button class="submit-btn" full type="submit" (click)="signIn()">Login</button>
+          <button *ngIf="!isLoading" class="register" full (click)="register()">Register</button>
       </ion-row>
-      
     </form>
   </div>

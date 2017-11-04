@@ -1,5 +1,4 @@
-page-login {
-
+page-register {
 	.login-box {
 	  display: flex;
 	  justify-content: center; /* center horizontally */
@@ -21,6 +20,16 @@ page-login {
 
 	form {
 		width: 90%;
+	}
+
+	.firstname-item {
+		width: 45%;
+		margin-right: 10px;
+	}
+
+	.lastname-item {
+		width: 45%;
+		margin-left: 10px;
 	}
 
 	ion-spinner {

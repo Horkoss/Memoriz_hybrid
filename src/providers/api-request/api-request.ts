@@ -31,6 +31,27 @@ import { User } from '../../model/User'
   		}
   	}
 
+    register(credentials) {
+      if (credentials.email == '' || credentials.password == '') {
+        return Observable.throw('Please complete all fields');
+      } else {
+        let headers = this.getHeaders();
+        let options = new RequestOptions({ headers: headers });
+
+        let postParams = {
+          firstname: credentials.firstname,
+          lastname: credentials.lastname,
+          username: credentials.firstname + ' ' + credentials.lastname,
+          email: credentials.email,
+          password: credentials.password,
+          password_confirmation: credentials.password_confirmation,
+          birthday: credentials.birthday,
+        }
+        return this.http.post(this.apiUrl + '/users', postParams, options)
+        .do(this.logResponse).map(this.extractData).catch(this.catchError);
+      }
+    }
+
     getAllContent(page, per){
       let headers = this.getHeaders();
       let options = new RequestOptions({ headers: headers });
