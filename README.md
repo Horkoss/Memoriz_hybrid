@@ -21,7 +21,7 @@ Listes des fonctionnalités présente sur la version hybride:
 - Implémentation des sliding tabs ainsi que de la bottom navigation
 - Récupération de tous les contenus ainsi que les contenus personnels
 - Implémentation du pull-to-refresh, infinite scroll (La récupération des contenus marchant sur un système de pagination on récupère la page suivante a chaque fois que l'utilisateur arrive en bout de liste)
-- Ajout de contenu personnel (image)
+- Ajout de contenu personnel (image), vérification que l'utilisateur à bien le wifi ou les données cellulaires activer pour éviter d'avoir la page de chargement inutilement
 - Google maps: Affiche les évènements sur la carte (Récupération de la position actuelle afin de zoomer dessus)
 
 Backend:
