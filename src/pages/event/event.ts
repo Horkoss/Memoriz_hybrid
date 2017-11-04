@@ -37,7 +37,7 @@ export class EventPage {
  			this.map.getMyLocation().then((location) => {
  				this.map.animateCamera({
  					target: location.latLng,
- 					zoom: 10,
+ 					zoom: 13,
  					tilt: 15
  				}).then(() => {
  					this.apiRequest.getEvents().subscribe(
