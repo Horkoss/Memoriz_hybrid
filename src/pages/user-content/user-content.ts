@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiRequestProvider } from '../../providers/api-request/api-request';
 import { Toast } from '@ionic-native/toast';
-import { ContentArray } from '../../model/ContentArray'
+import { ContentArray, Content } from '../../model/Content'
 import { AddNewContentPage } from '../../pages/add-new-content/add-new-content'
 import { App } from 'ionic-angular';
 

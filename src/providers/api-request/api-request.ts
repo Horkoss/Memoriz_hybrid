@@ -68,6 +68,14 @@ import { User } from '../../model/User'
       .do(this.logResponse).map(this.extractData).catch(this.catchError);
     }
 
+    getEvents() {
+      let headers = this.getHeaders();
+      let options = new RequestOptions({ headers: headers });
+
+      return this.http.get(this.apiUrl + '/events?page=1&per=20', options)
+      .do(this.logResponse).map(this.extractData).catch(this.catchError);
+    }
+
   	private getHeaders() {
   		var headers = new Headers();
   		headers.append("Accept", 'application/json');

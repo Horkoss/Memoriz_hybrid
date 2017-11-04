@@ -16,6 +16,7 @@ import { AddNewContentPage } from '../pages/add-new-content/add-new-content'
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Network } from '@ionic-native/network';
+import { GoogleMaps } from '@ionic-native/google-maps'
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { Network } from '@ionic-native/network';
     FileTransfer,
     FileTransferObject,
     Network,
+    GoogleMaps,
   ]
 })
 export class AppModule {}
