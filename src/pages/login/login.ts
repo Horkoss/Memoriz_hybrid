@@ -20,7 +20,7 @@ import { RegisterPage } from '../../pages/register/register'
 })
 export class LoginPage {
 	isLoading: boolean;
-	registerCredentials = { email: 'jltang@gmail.com', password: 'password' };
+	registerCredentials = { email: '', password: '' };
 
 	constructor(public navCtrl: NavController, private apiRequest: ApiRequestProvider, private toast: Toast) {
 		this.isLoading = false;
