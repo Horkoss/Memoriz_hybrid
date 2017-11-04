@@ -1,7 +1,8 @@
 page-add-new-content {
 	img {
-		width: 100%;
-		height: 200px;
+	    max-width:100%;
+	    max-height:100%;
+	    vertical-align: middle;
 	}
 
 	.select-image {
@@ -18,9 +19,13 @@ page-add-new-content {
 	}
 
 	.img-div {
-		background: black;
 		width: 100%;
-		height: 200px;
+		height: 250px;
+		display: flex;
+		text-align: center;
+		background: black;
+		justify-content: center;
+		overflow: hidden;
 	}
 
 	.send {

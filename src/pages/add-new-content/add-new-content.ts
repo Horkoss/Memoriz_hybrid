@@ -42,7 +42,13 @@ export class AddNewContentPage {
 	sendImage() {
 		if (this.network.type != "none") {
 			let loading = this.loadingCtrl.create({
-				content: 'Uploading image, please wait a moment...'
+				content: 'Uploading image, please wait a moment...',
+				enableBackdropDismiss: true,
+				dismissOnPageChange: true
+			});
+
+			loading.onDidDismiss(() => {
+				fileTransfer.abort();
 			});
 			const fileTransfer: FileTransferObject = this.transfer.create();
 			let imageName = this.imagePath.substr(this.imagePath.lastIndexOf('/') + 1)

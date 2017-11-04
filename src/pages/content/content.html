@@ -10,10 +10,10 @@
 		<ion-refresher-content>
 		</ion-refresher-content>
 	</ion-refresher>
-	<div *ngIf="contentList">
+	<div class="content-list-div" *ngIf="contentList">
 		<ion-list [virtualScroll]="contentList" [approxItemHeight]="'170px'">
 			<ion-item no-lines *virtualItem="let content">
-				<img src="{{content.urls.original}}">
+				<div class="img-container"><img class="content-img" src="{{content.urls.original}}"></div>
 				<p>{{content.caption}}</p>
 			</ion-item>
 		</ion-list>
