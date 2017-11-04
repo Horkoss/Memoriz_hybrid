@@ -21,7 +21,7 @@ Listes des fonctionnalités présente sur la version hybride:
 - Récupération de tous les contenus ainsi que les contenus personnels
 - Implémentation du pull-to-refresh, infinite scroll (La récupération des contenus marchant sur un système de pagination on récupère la page suivante a chaque fois que l'utilisateur arrive en bout de liste)
 - Ajout de contenu personnel (image)
-- Google maps: Affiche les évènements sur la carte
+- Google maps: Affiche les évènements sur la carte (Récupération de la position actuelle afin de zoomer dessus)
 
 Backend:
 
